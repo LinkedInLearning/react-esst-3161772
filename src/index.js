@@ -1,16 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { App } from './components/App';
+import React from "react";
+import ReactDOM from "react-dom";
+import { App } from "./components/App";
 
 const nameObj = {
-  prename: 'David',
-  lastname: 'Lorenz'
-}
+  prename: "David",
+  lastname: "Lorenz",
+};
 
 ReactDOM.render(
   <React.StrictMode>
-    <App title="test" name="LinkedIn" nameObj={nameObj}  />
+    <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
-
