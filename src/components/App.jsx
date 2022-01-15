@@ -36,11 +36,7 @@ export class App extends React.Component {
 
   render() {
     return (
-      <p>
-        {this.state.diff}
-
-        <strong>Countdown = {this.state.counterValue}</strong>
-      </p>
+      <strong>Countdown = {this.state.counterValue}</strong>;
     );
   }
 }
