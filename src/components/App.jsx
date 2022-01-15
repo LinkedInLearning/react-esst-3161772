@@ -1,7 +1,12 @@
-import React from 'react';
+import React from "react";
 
 export class App extends React.Component {
   render() {
-    return <div>Hallo Component</div>
+    const { title, name, nameObj } = this.props;
+    return (
+      <div title={title}>
+        Hallo {nameObj.prename} {nameObj.lastname}
+      </div>
+    );
   }
 }
