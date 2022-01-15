@@ -2,11 +2,12 @@ import React from "react";
 
 export class App extends React.Component {
   state = {
-    counterValue: 3,
+    counterValue: 2,
   };
 
   componentDidMount() {
-    setInterval(() => {
+    console.log("neues interval");
+    this.myInterval = setInterval(() => {
       this.setState((state) => {
         if (state.counterValue > 0) {
           return { counterValue: state.counterValue - 1 };
@@ -17,7 +18,29 @@ export class App extends React.Component {
     }, 1000);
   }
 
+  componentWillUnmount() {
+    clearInterval(this.myInterval);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log(prevProps, prevState);
+  }
+
+  shouldComponentUpdate() {
+    if (this.state.counterValue === 0) {
+      return false;
+    }
+
+    return true;
+  }
+
   render() {
-    return <strong>Countdown = {this.state.counterValue}</strong>;
+    return (
+      <p>
+        {this.state.diff}
+
+        <strong>Countdown = {this.state.counterValue}</strong>
+      </p>
+    );
   }
 }
