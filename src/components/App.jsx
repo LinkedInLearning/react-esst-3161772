@@ -1,21 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export function App() {
-  const [counterState, setCounterState] = useState(0);
-  const [counterState2, setCounterState2] = useState(0);
+  const [countdown, setCountdown] = useState(10);
+  useEffect(() => {
+    const ref = setTimeout(() => {
+      if (countdown > 0) {
+        setCountdown(countdown - 1);
+      }
+    }, 1000);
+
+    return () => clearTimeout(ref);
+  }, [countdown]);
 
   return (
     <div>
-      <button
-        type="button"
-        onClick={() => {
-          setCounterState(counterState + 1);
-          setCounterState2(counterState2 + 2);
-        }}
-      >
-        Click me
-      </button>
-      CounterValue = {counterState}, CounterValue2 = {counterState2}
+      <h1>Countdown</h1>
+      <p>{countdown}</p>
+      <progress value={countdown} min="0" max="10" />
     </div>
   );
 }
