@@ -1,9 +1,14 @@
 import React from "react";
+import { Weather } from "./Weather";
 
 export function App() {
   return (
     <div>
-      <h1>Global State Context</h1>
+      <h1>🌥 Weather:</h1>
+
+      <Weather city="Stuttgart" />
+      <Weather city="London" />
+      <Weather city="Berlin" />
     </div>
   );
 }
