@@ -1,28 +1,24 @@
-import React, { useState } from "react";
-import { StatusChanger } from "./StatusChanger";
+import React from "react";
+import { Linkchecker } from "./Linkchecker";
 
 export function App() {
-  const [status, setStatus] = useState("Verfügbar ✅");
-  const onStatusChange = (newStatus) => setStatus(newStatus);
-
   return (
     <div>
-      <h1>Status: {status}</h1>
+      <h1>Linkchecker</h1>
 
-      <p>
-        <StatusChanger
-          onStatusChange={onStatusChange}
-          statusText="Verfügbar ✅"
-        />
-        <StatusChanger
-          onStatusChange={onStatusChange}
-          statusText="Beschäftigt 🗓"
-        />
-        <StatusChanger
-          onStatusChange={onStatusChange}
-          statusText="Offline 🚫"
-        />
-      </p>
+      <Linkchecker />
+
+      <ul>
+        <li>
+          <a href="https://linkedin.com">LinkedIn</a>
+        </li>
+        <li>
+          <a href="https://blog.activenode.de">David's Blog</a>
+        </li>
+        <li>
+          <a href="https://unsecure-link">Bank Website</a>
+        </li>
+      </ul>
     </div>
   );
 }
