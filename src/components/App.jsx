@@ -1,25 +1,28 @@
 import React, { useState } from "react";
+import { StatusChanger } from "./StatusChanger";
 
 export function App() {
-  const [headline, setHeadline] = useState("");
-  const [inputValue, setInputValue] = useState("");
-
-  const buttonClicked = () => {
-    setHeadline(inputValue);
-  };
-
-  const inputChanged = (event) => {
-    setInputValue(event.target.value);
-  };
+  const [status, setStatus] = useState("Verfügbar ✅");
+  const onStatusChange = (newStatus) => setStatus(newStatus);
 
   return (
     <div>
-      <h1>{headline}</h1>
-      <input type="text" onInput={inputChanged} />
-      <br />
-      <button type="button" onClick={buttonClicked}>
-        Make me big!
-      </button>
+      <h1>Status: {status}</h1>
+
+      <p>
+        <StatusChanger
+          onStatusChange={onStatusChange}
+          statusText="Verfügbar ✅"
+        />
+        <StatusChanger
+          onStatusChange={onStatusChange}
+          statusText="Beschäftigt 🗓"
+        />
+        <StatusChanger
+          onStatusChange={onStatusChange}
+          statusText="Offline 🚫"
+        />
+      </p>
     </div>
   );
 }
