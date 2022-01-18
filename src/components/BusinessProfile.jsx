@@ -1,13 +1,25 @@
-export function BusinessProfile() {
+import { useContext } from "react";
+import { OpenToWorkContext } from "../OpenToWorkContext";
+
+export function BusinessProfile(props) {
   // is person open-to-work ?
+  const isOpenToWork = useContext(
+    OpenToWorkContext
+  );
+  console.log("isOpenToWork", isOpenToWork);
+  let classString = "profile ";
+
+  if (isOpenToWork === true) {
+    classString += "open-to-work";
+  }
 
   return (
-    <div className="profile">
+    <div className={classString}>
       <p>
-        <strong>🌟 David Lorenz</strong>
+        <strong>{props.name}</strong>
       </p>
       <p>
-        <small>Frontend Architect</small>
+        <small>{props.job}</small>
       </p>
     </div>
   );
