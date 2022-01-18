@@ -12,6 +12,7 @@ export function Linkchecker() {
         setLink("");
       }
     };
+
     window.addEventListener("mouseover", mouseover);
 
     return () => {
