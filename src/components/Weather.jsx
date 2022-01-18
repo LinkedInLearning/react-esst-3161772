@@ -1,5 +1,12 @@
+import { useContext } from "react";
+import { WeatherContext } from "../WeatherContext";
+
 export function Weather(props) {
-  const weatherText = "N/A";
+  const weatherState = useContext(WeatherContext);
+
+  const weatherText = weatherState[props.city]
+    ? weatherState[props.city]
+    : "N/A";
 
   return (
     <p>
