@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { WeatherContext } from "../WeatherContext";
-import { Weather } from "./Weather";
+import React from "react";
 
 export function App() {
   return (
     <div>
-      Meine heutigen Tasks:
+      <h1>Meine heutigen Tasks:</h1>
+
       <ul>
         <li>React lernen</li>
         <li>Mit dem Hund Gassi gehen</li>
