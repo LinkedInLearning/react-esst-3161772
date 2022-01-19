@@ -1,6 +1,10 @@
 import React from "react";
 
 export function App() {
+  const openModal = () => {
+    alert("Open Modal");
+  };
+
   return (
     <>
       <header>
@@ -11,6 +15,13 @@ export function App() {
           alt=""
         />
       </header>
+
+      <main>
+        <button
+          type="button"
+          onClick={openModal}
+        ></button>
+      </main>
     </>
   );
 }
