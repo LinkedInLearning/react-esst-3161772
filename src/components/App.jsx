@@ -19,7 +19,7 @@ export function App() {
 
   return (
     <>
-      <h1>Fragments &amp; Conditionals</h1>
+      <h1>Fragments</h1>
 
       <dl>
         {terms.map((termObj) => {
