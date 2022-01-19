@@ -1,22 +1,41 @@
 import React from "react";
 
+export function OtherComponent(props) {
+  return props.children;
+}
+
 export function App() {
-  const tasks = [
-    { id: 123, taskText: "React lernen 2" },
-    { id: 456, taskText: "Mit dem Hund Gassi gehen" },
-    { id: 789, taskText: "Obst essen" },
-    { id: 1011, taskText: "Brot kaufen" },
+  const terms = [
+    {
+      term: "Firefox",
+      description: "Firefox is a Web Browser",
+    },
+    {
+      term: "Mouse",
+      description:
+        "Is Computer Hardware and an Animal",
+    },
   ];
 
   return (
-    <div>
-      <h1>Meine heutigen Tasks:</h1>
+    <>
+      <h1>Fragments &amp; Conditionals</h1>
 
-      <ul>
-        {tasks.map((taskObj) => (
-          <li key={taskObj.id}>{taskObj.taskText}</li>
-        ))}
-      </ul>
-    </div>
+      <dl>
+        {terms.map((termObj) => {
+          return (
+            <React.Fragment key={termObj.term}>
+              <dt>{termObj.term}</dt>
+              <dd>{termObj.description}</dd>
+            </React.Fragment>
+          );
+        })}
+      </dl>
+
+      <OtherComponent>
+        <p>Kind 1</p>
+        <p>Kind 2</p>
+      </OtherComponent>
+    </>
   );
 }
