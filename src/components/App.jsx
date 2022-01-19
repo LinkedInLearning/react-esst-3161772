@@ -17,10 +17,15 @@ export function App() {
       </header>
 
       <main>
-        <button
-          type="button"
-          onClick={openModal}
-        ></button>
+        <p>Lorem Ipsum!</p>
+
+        <button type="button" onClick={openModal}>
+          Open a Modal
+        </button>
+
+        <div className="modal">
+          <strong>Hello I am the Modal!</strong>
+        </div>
       </main>
     </>
   );
