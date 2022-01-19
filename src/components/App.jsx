@@ -1,44 +1,82 @@
-import React, { useState } from "react";
+import React from "react";
 
 export function App() {
-  const [quotes, setQuotes] = useState([]);
-
-  const callApi = () => {
-    fetch("https://api.kanye.rest/")
-      .then((response) => response.json())
-      .then((quoteObj) => {
-        const quote = quoteObj.quote;
-
-        setQuotes((previousArray) => {
-          return [...previousArray, quote];
-        });
-      });
-  };
-
-  // RENDER HERE:
   return (
-    <React.Fragment>
-      {quotes.length === 0 && (
-        <p>
-          Kanye hat noch nicht gesprochen aber
-          <em> David </em> sagt: Vergleiche dich nicht
-          mit Anderen denn du bist gut genug!
-        </p>
-      )}
+    <>
+      <header>
+        <nav>
+          <p>Navigation:</p>
+          <a href="https://linkedin.com">LinkedIn</a>
+          &nbsp;
+          <a href="https://blog.activenode.de">
+            Mein Blog
+          </a>
+        </nav>
 
-      <button type="button" onClick={callApi}>
-        Call Kanye
-      </button>
+        <img
+          width="100%"
+          src="https://picsum.photos/id/251/700/300"
+          alt=""
+        />
+      </header>
 
-      {quotes.length > 0 && <h1>Kanye says</h1>}
+      <main>
+        <article>
+          <h1>Beitrag 1</h1>
+          <p>
+            Vivamus sagittis lacus vel augue laoreet
+            rutrum faucibus dolor auctor. Maecenas sed
+            diam eget risus varius blandit sit amet non
+            magna. Maecenas sed diam eget risus varius
+            blandit sit amet non magna. Vivamus
+            sagittis lacus vel augue laoreet rutrum
+            faucibus dolor auctor. Fusce dapibus,
+            tellus ac cursus commodo, tortor mauris
+            condimentum nibh, ut fermentum massa justo
+            sit amet risus. Aenean lacinia bibendum
+            nulla sed consectetur.
+          </p>
+        </article>
+        <article>
+          <h1>Beitrag 2</h1>
+          <p>
+            Vivamus sagittis lacus vel augue laoreet
+            rutrum faucibus dolor auctor. Maecenas sed
+            diam eget risus varius blandit sit amet non
+            magna. Maecenas sed diam eget risus varius
+            blandit sit amet non magna. Vivamus
+            sagittis lacus vel augue laoreet rutrum
+            faucibus dolor auctor. Fusce dapibus,
+            tellus ac cursus commodo, tortor mauris
+            condimentum nibh, ut fermentum massa justo
+            sit amet risus. Aenean lacinia bibendum
+            nulla sed consectetur.
+          </p>
+        </article>
+        <article>
+          <h1>Beitrag 3</h1>
+          <p>
+            Vivamus sagittis lacus vel augue laoreet
+            rutrum faucibus dolor auctor. Maecenas sed
+            diam eget risus varius blandit sit amet non
+            magna. Maecenas sed diam eget risus varius
+            blandit sit amet non magna. Vivamus
+            sagittis lacus vel augue laoreet rutrum
+            faucibus dolor auctor. Fusce dapibus,
+            tellus ac cursus commodo, tortor mauris
+            condimentum nibh, ut fermentum massa justo
+            sit amet risus. Aenean lacinia bibendum
+            nulla sed consectetur.
+          </p>
+        </article>
+      </main>
 
-      {quotes.length > 0 && (
-        <ul>
-          {quotes.map((quote) => (
-            <li>{quote}</li>
-          ))}
-        </ul>
-      )}
-    </React.Fragment>
+      <footer>
+        <hr />
+        <button type="button">
+          Zurück zur Navigation scrollen
+        </button>
+      </footer>
+    </>
   );
 }
