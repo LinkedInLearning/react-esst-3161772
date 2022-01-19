@@ -1,4 +1,5 @@
 import React from "react";
+import { Modal } from "./Modal";
 
 export function App() {
   const openModal = () => {
@@ -23,9 +24,7 @@ export function App() {
           Open a Modal
         </button>
 
-        <div className="modal">
-          <strong>Hello I am the Modal!</strong>
-        </div>
+        <Modal modalText="Hello Modal!" />
       </main>
     </>
   );
