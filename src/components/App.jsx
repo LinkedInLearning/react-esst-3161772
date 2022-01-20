@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Modal } from "./Modal";
 
 export function App() {
@@ -8,6 +8,19 @@ export function App() {
   const openModal = () => {
     setIsModalOpen(true);
   };
+
+  useEffect(() => {
+    const listener = (event) => {
+      if (event.key === "Escape") {
+        setIsModalOpen(false);
+      }
+    };
+
+    window.addEventListener("keyup", listener);
+
+    return () =>
+      window.removeEventListener("keyup", listener);
+  }, []);
 
   return (
     <>
