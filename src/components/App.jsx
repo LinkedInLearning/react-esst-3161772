@@ -6,7 +6,7 @@ export function App() {
     useState(false);
 
   const openModal = () => {
-    alert("Open Modal");
+    setIsModalOpen(true);
   };
 
   return (
