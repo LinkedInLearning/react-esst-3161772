@@ -1,82 +1,38 @@
-import React, { useState } from "react";
+import React from "react";
 
 export function App() {
-  const [formData, setFormData] = useState({});
-  const [showDate, setShowDate] = useState(true);
-
-  const [fullname, setFullname] = useState("");
-  const [birthdate, setBirthdate] = useState("");
-
-  const formSubmitted = (submitEvent) => {
-    submitEvent.preventDefault();
-
-    setFormData({ fullname, birthdate });
-  };
-
-  const fullnameChanged = (event) => {
-    setFullname(event.target.value);
-  };
-
-  const birthdateChanged = (event) => {
-    setBirthdate(event.target.value);
-  };
-
   return (
     <>
       <header>
-        <h1>Controlled Forms ✅</h1>
+        <h1>Routing 🔀</h1>
       </header>
 
       <main>
-        <form onSubmit={formSubmitted}>
-          <fieldset>
-            <legend>Persönliche Daten</legend>
+        <>
+          <h2>Home</h2>
+          <p>
+            Hallo. Mein Name ist David und das hier ist
+            die erste Seite!
+          </p>
+        </>
 
-            <p>
-              <label htmlFor="fullname">Name:</label>
-              <br />
-              <input
-                type="text"
-                id="fullname"
-                name="fullname"
-                placeholder="Ihr Name"
-                value={fullname}
-                onInput={fullnameChanged}
-              />
-            </p>
+        <>
+          <h2>Fotos</h2>
+          <p>Hier sind ein paar tolle Fotos:</p>
 
-            {showDate && (
-              <p>
-                <label htmlFor="birthdate">
-                  Geburtstag:
-                </label>
-                <br />
-                <input
-                  type="date"
-                  id="birthdate"
-                  name="birthdate"
-                  onInput={birthdateChanged}
-                  value={birthdate}
-                />
-              </p>
-            )}
-            <button
-              type="button"
-              onClick={() => setShowDate(!showDate)}
-            >
-              Geburtstag an/aus
-            </button>
-
-            <p>
-              <button type="submit">
-                Formular absenden
-              </button>
-            </p>
-          </fieldset>
-        </form>
-
-        <h2>Abgesende Daten:</h2>
-        {JSON.stringify(formData)}
+          <img
+            width="100%"
+            src="https://picsum.photos/id/111/460/240"
+          />
+          <img
+            width="100%"
+            src="https://picsum.photos/id/211/460/240"
+          />
+          <img
+            width="100%"
+            src="https://picsum.photos/id/311/460/240"
+          />
+        </>
       </main>
     </>
   );
