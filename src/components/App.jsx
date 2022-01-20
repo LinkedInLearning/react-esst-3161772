@@ -1,48 +1,41 @@
-import React, { useEffect, useState } from "react";
-import { Modal } from "./Modal";
+import React from "react";
 
 export function App() {
-  const [isModalOpen, setIsModalOpen] =
-    useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  useEffect(() => {
-    const listener = (event) => {
-      if (event.key === "Escape") {
-        setIsModalOpen(false);
-      }
-    };
-
-    window.addEventListener("keyup", listener);
-
-    return () =>
-      window.removeEventListener("keyup", listener);
-  }, []);
-
   return (
     <>
       <header>
-        <h1>Portals</h1>
-        <img
-          width="100%"
-          src="https://picsum.photos/id/255/700/300"
-          alt=""
-        />
+        <h1>Uncontrolled Forms</h1>
       </header>
 
       <main>
-        <p>Lorem Ipsum!</p>
+        <form>
+          <fieldset>
+            <legend>Persönliche Daten</legend>
 
-        <button type="button" onClick={openModal}>
-          Open a Modal
-        </button>
+            <p>
+              <label for="fullname">Name: </label>
+              <br />
+              <input
+                type="text"
+                id="fullname"
+                name="fullname"
+                placeholder="Ihr Name"
+              />
+            </p>
 
-        {isModalOpen && (
-          <Modal modalText="Hello Modal!" />
-        )}
+            <p>
+              <label for="birthdate">
+                Geburtstag:{" "}
+              </label>
+              <br />
+              <input
+                type="date"
+                id="birthdate"
+                name="birthdate"
+              />
+            </p>
+          </fieldset>
+        </form>
       </main>
     </>
   );
