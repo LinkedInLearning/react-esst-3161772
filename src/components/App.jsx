@@ -1,26 +1,30 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 
 export function App() {
   const [formData, setFormData] = useState({});
-  const textFieldRef = useRef();
+  const [showDate, setShowDate] = useState(true);
+
+  const [fullname, setFullname] = useState("");
+  const [birthdate, setBirthdate] = useState("");
 
   const formSubmitted = (submitEvent) => {
     submitEvent.preventDefault();
-    const form = submitEvent.target;
-    const formControls = form.elements;
-    const fullnameInput = textFieldRef.current;
-    const birthdateInput = formControls.birthdate;
-
-    const fullname = fullnameInput.value;
-    const birthdate = birthdateInput.value;
 
     setFormData({ fullname, birthdate });
+  };
+
+  const fullnameChanged = (event) => {
+    setFullname(event.target.value);
+  };
+
+  const birthdateChanged = (event) => {
+    setBirthdate(event.target.value);
   };
 
   return (
     <>
       <header>
-        <h1>Uncontrolled Forms</h1>
+        <h1>Controlled Forms ✅</h1>
       </header>
 
       <main>
@@ -32,25 +36,36 @@ export function App() {
               <label htmlFor="fullname">Name:</label>
               <br />
               <input
-                ref={textFieldRef}
                 type="text"
                 id="fullname"
                 name="fullname"
                 placeholder="Ihr Name"
+                value={fullname}
+                onInput={fullnameChanged}
               />
             </p>
 
-            <p>
-              <label htmlFor="birthdate">
-                Geburtstag:
-              </label>
-              <br />
-              <input
-                type="date"
-                id="birthdate"
-                name="birthdate"
-              />
-            </p>
+            {showDate && (
+              <p>
+                <label htmlFor="birthdate">
+                  Geburtstag:
+                </label>
+                <br />
+                <input
+                  type="date"
+                  id="birthdate"
+                  name="birthdate"
+                  onInput={birthdateChanged}
+                  value={birthdate}
+                />
+              </p>
+            )}
+            <button
+              type="button"
+              onClick={() => setShowDate(!showDate)}
+            >
+              Geburtstag an/aus
+            </button>
 
             <p>
               <button type="submit">
