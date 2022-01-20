@@ -34,6 +34,12 @@ export function App() {
                 name="birthdate"
               />
             </p>
+
+            <p>
+              <button type="submit">
+                Formular absenden
+              </button>
+            </p>
           </fieldset>
         </form>
       </main>

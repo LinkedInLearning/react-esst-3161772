@@ -31,27 +31,25 @@
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
       }
 
-      header {
-        position: relative;
-        z-index: 999;
+      fieldset {
+        background-color: #ecfeff;
+        border-radius: 4px;
       }
 
-      main {
-        position: relative;
-        z-index: 50;
+      legend {
+        font-weight: bold;
       }
 
-      .modal {
-        z-index: 99999;
-        position: fixed;
-        inset: 0;
-        background: #0e5476bb;
-        backdrop-filter: blur(5px);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 200%;
-        color: white;
+      fieldset p:first-of-type {
+        margin-top: 0;
+      }
+
+      fieldset p:last-of-type {
+        margin-bottom: 0;
+      }
+
+      button, input {
+        font-size: 1rem;
       }
     </style>
   </head>
