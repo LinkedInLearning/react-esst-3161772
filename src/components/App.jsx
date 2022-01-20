@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Modal } from "./Modal";
 
 export function App() {
+  const [isModalOpen, setIsModalOpen] =
+    useState(false);
+
   const openModal = () => {
     alert("Open Modal");
   };
@@ -24,7 +27,9 @@ export function App() {
           Open a Modal
         </button>
 
-        <Modal modalText="Hello Modal!" />
+        {isModalOpen && (
+          <Modal modalText="Hello Modal!" />
+        )}
       </main>
     </>
   );
