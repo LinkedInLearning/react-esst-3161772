@@ -1,9 +1,12 @@
+import ReactDOM from "react-dom";
+
 export function Modal(props) {
   const modalText = props.modalText;
 
-  return (
+  return ReactDOM.createPortal(
     <div className="modal">
       <strong>{modalText}</strong>
-    </div>
+    </div>,
+    document.getElementById("outside")
   );
 }
