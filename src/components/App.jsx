@@ -1,6 +1,22 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 
 export function App() {
+  const [formData, setFormData] = useState({});
+  const textFieldRef = useRef();
+
+  const formSubmitted = (submitEvent) => {
+    submitEvent.preventDefault();
+    const form = submitEvent.target;
+    const formControls = form.elements;
+    const fullnameInput = textFieldRef.current;
+    const birthdateInput = formControls.birthdate;
+
+    const fullname = fullnameInput.value;
+    const birthdate = birthdateInput.value;
+
+    setFormData({ fullname, birthdate });
+  };
+
   return (
     <>
       <header>
@@ -8,14 +24,15 @@ export function App() {
       </header>
 
       <main>
-        <form>
+        <form onSubmit={formSubmitted}>
           <fieldset>
             <legend>Persönliche Daten</legend>
 
             <p>
-              <label for="fullname">Name: </label>
+              <label htmlFor="fullname">Name:</label>
               <br />
               <input
+                ref={textFieldRef}
                 type="text"
                 id="fullname"
                 name="fullname"
@@ -24,8 +41,8 @@ export function App() {
             </p>
 
             <p>
-              <label for="birthdate">
-                Geburtstag:{" "}
+              <label htmlFor="birthdate">
+                Geburtstag:
               </label>
               <br />
               <input
@@ -42,6 +59,9 @@ export function App() {
             </p>
           </fieldset>
         </form>
+
+        <h2>Abgesende Daten:</h2>
+        {JSON.stringify(formData)}
       </main>
     </>
   );
