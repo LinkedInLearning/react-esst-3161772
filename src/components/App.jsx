@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import {
   BrowserRouter,
   Link,
@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import { Home } from "./Home";
 import { Photos } from "./Photos";
+// import { SinglePhoto } from "./SinglePhoto";
 const SinglePhoto = React.lazy(() =>
   import("./SinglePhoto")
 );
@@ -28,7 +29,9 @@ export function App() {
       <hr />
 
       <main>
-        <Suspense fallback="Loading mate...">
+        <React.Suspense
+          fallback={<div>Lade Component...</div>}
+        >
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/photos">
@@ -45,7 +48,7 @@ export function App() {
               />
             </Route>
           </Routes>
-        </Suspense>
+        </React.Suspense>
       </main>
     </BrowserRouter>
   );
