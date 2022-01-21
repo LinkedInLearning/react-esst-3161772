@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
+
 export function SinglePhoto(props) {
   return (
     <>
       <h2>Ein tolles Foto:</h2>
-      <a href="">Zurück</a>
+      <Link to="..">Zurück</Link>
       <hr />
       <img
         alt=""
