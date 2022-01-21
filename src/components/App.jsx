@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Home } from "./Home";
 import { Photos } from "./Photos";
 import { SinglePhoto } from "./SinglePhoto";
@@ -13,8 +12,8 @@ export function App() {
         <h1>Routing 🔀</h1>
 
         <nav>
-          <Link to="/">Home</Link>
-          <Link to="/photos">Fotos</Link>
+          <a href="/">Home</a>
+          <a href="/photos">Fotos</a>
         </nav>
       </header>
 
