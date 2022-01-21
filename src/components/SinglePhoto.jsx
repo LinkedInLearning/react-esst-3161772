@@ -1,13 +1,18 @@
-export function SinglePhoto(props) {
+import { Link, useParams } from "react-router-dom";
+
+export function SinglePhoto() {
+  const params = useParams();
+
   return (
     <>
       <h2>Ein tolles Foto:</h2>
-      <a href="#">Zurück zu allen Fotos</a>
+      <Link to="..">Zurück zu allen Fotos</Link>
+
       <hr />
       <img
         alt=""
         width="100%"
-        src={`https://picsum.photos/id/${props.id}/460/240`}
+        src={`https://picsum.photos/id/${params.id}/460/240`}
       />
     </>
   );
