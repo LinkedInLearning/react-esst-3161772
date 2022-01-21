@@ -18,7 +18,7 @@ export function App() {
   return (
     <BrowserRouter>
       <header>
-        <h1>Routing 🔀</h1>
+        <h1>Error Boundaries ⚡️</h1>
 
         <nav>
           <Link to="/">Home</Link>
