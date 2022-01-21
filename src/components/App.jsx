@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Home } from "./Home";
 import { Photos } from "./Photos";
 import { SinglePhoto } from "./SinglePhoto";
