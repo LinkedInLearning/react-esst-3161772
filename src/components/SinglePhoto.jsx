@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 
-export function SinglePhoto() {
+export default function SinglePhoto() {
   const params = useParams();
 
   return (

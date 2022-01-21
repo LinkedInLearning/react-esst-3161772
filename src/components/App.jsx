@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import {
   BrowserRouter,
   Link,
@@ -7,7 +7,9 @@ import {
 } from "react-router-dom";
 import { Home } from "./Home";
 import { Photos } from "./Photos";
-import { SinglePhoto } from "./SinglePhoto";
+const SinglePhoto = React.lazy(() =>
+  import("./SinglePhoto")
+);
 
 export function App() {
   const imageIds = ["111", "211", "311", "351", "678"];
@@ -26,20 +28,24 @@ export function App() {
       <hr />
 
       <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/photos">
-            <Route
-              path=""
-              element={<Photos imageIds={imageIds} />}
-            />
+        <Suspense fallback="Loading mate...">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/photos">
+              <Route
+                path=""
+                element={
+                  <Photos imageIds={imageIds} />
+                }
+              />
 
-            <Route
-              path=":id"
-              element={<SinglePhoto />}
-            />
-          </Route>
-        </Routes>
+              <Route
+                path=":id"
+                element={<SinglePhoto />}
+              />
+            </Route>
+          </Routes>
+        </Suspense>
       </main>
     </BrowserRouter>
   );
