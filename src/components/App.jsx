@@ -1,44 +1,38 @@
 import React from "react";
+import {
+  BrowserRouter,
+  Link,
+  Route,
+  Routes,
+} from "react-router-dom";
+import { Home } from "./Home";
+import { Photos } from "./Photos";
 
 export function App() {
   const imageIds = ["111", "211", "311", "351", "678"];
 
   return (
-    <>
+    <BrowserRouter>
       <header>
         <h1>Routing 🔀</h1>
 
         <nav>
-          <a href="#">Home</a>
-          <a href="#">Fotos</a>
+          <Link to="/">Home</Link>
+          <Link to="/photos">Fotos</Link>
         </nav>
       </header>
 
       <hr />
 
       <main>
-        <>
-          <h2>Home</h2>
-          <p>
-            Hallo. Mein Name ist David und das hier ist
-            die erste Seite!
-          </p>
-        </>
-
-        <>
-          <h2>Fotos</h2>
-          <p>Hier sind ein paar tolle Fotos:</p>
-
-          {imageIds.map((id) => (
-            <img
-              key={id}
-              alt=""
-              width="100%"
-              src={`https://picsum.photos/id/${id}/460/240`}
-            />
-          ))}
-        </>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/photos/*"
+            element={<Photos imageIds={imageIds} />}
+          />
+        </Routes>
       </main>
-    </>
+    </BrowserRouter>
   );
 }
