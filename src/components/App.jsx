@@ -75,7 +75,7 @@ export function App() {
           </fieldset>
         </form>
 
-        <h2>Abgesende Daten:</h2>
+        <h2>Abgesendete Daten:</h2>
         {JSON.stringify(formData)}
       </main>
     </>
