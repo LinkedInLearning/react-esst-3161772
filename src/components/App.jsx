@@ -1,5 +1,8 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+} from "react-router-dom";
 import { Home } from "./Home";
 
 export function App() {
@@ -10,8 +13,6 @@ export function App() {
           <a href="/">Home</a>
           <a href="https://reactjs.org/">React Docs</a>
         </nav>
-
-        <Hero />
       </header>
 
       <BrowserRouter>
