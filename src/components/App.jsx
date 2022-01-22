@@ -8,13 +8,19 @@ import {
 import { Home } from "./Home";
 import { Resources } from "./Resources";
 import { Hero } from "./Hero";
+import "../styles/global.css";
 
 export function App() {
   return (
     <BrowserRouter>
       <header>
-        <nav>
-          <Link to="/">Home</Link>
+        <nav
+          style={{
+            padding: "10px",
+            fontSize: "20px",
+          }}
+        >
+          <Link to="/">Home</Link>{" "}
           <Link to="/resources">Resources</Link>
         </nav>
 
