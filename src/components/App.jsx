@@ -5,7 +5,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import { ErrorBoundary } from "./ErrorBundary";
+import { ErrorBoundary } from "./ErrorBoundary";
 import { Home } from "./Home";
 import { Photos } from "./Photos";
 // import { SinglePhoto } from "./SinglePhoto";
