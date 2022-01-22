@@ -1,3 +1,8 @@
 export function Hero() {
-  return <strong>I am the Hero Component</strong>;
+  return (
+    <div>
+      <strong>React Infopage</strong>
+      <p>Be informed, stay informed!</p>
+    </div>
+  );
 }
