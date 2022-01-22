@@ -16,19 +16,20 @@ export function App() {
         <nav>
           <Link to="/">Home</Link>
           <Link to="/resources">Resources</Link>
-          <a href="https://reactjs.org/">React Docs</a>
         </nav>
 
         <Hero />
       </header>
 
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route
-          path="/resources"
-          element={<Resources />}
-        ></Route>
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route
+            path="/resources"
+            element={<Resources />}
+          ></Route>
+        </Routes>
+      </main>
     </BrowserRouter>
   );
 }

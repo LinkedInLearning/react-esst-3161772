@@ -1,3 +1,3 @@
 export function Hero() {
-  return "Hero Image here!";
+  return <strong>I am the Hero Component</strong>;
 }
