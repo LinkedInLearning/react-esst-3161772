@@ -5,6 +5,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
+import { ErrorBoundary } from "./ErrorBundary";
 import { Home } from "./Home";
 import { Photos } from "./Photos";
 // import { SinglePhoto } from "./SinglePhoto";
@@ -29,26 +30,32 @@ export function App() {
       <hr />
 
       <main>
-        <React.Suspense
-          fallback={<div>Lade Component...</div>}
-        >
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/photos">
-              <Route
-                path=""
-                element={
-                  <Photos imageIds={imageIds} />
-                }
-              />
+        <ErrorBoundary>
+          <React.Suspense
+            fallback={<div>Lade Component...</div>}
+          >
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/photos">
+                <Route
+                  path=""
+                  element={
+                    <Photos imageIds={imageIds} />
+                  }
+                />
 
-              <Route
-                path=":id"
-                element={<SinglePhoto />}
-              />
-            </Route>
-          </Routes>
-        </React.Suspense>
+                <Route
+                  path=":id"
+                  element={
+                    <ErrorBoundary>
+                      <SinglePhoto />
+                    </ErrorBoundary>
+                  }
+                />
+              </Route>
+            </Routes>
+          </React.Suspense>
+        </ErrorBoundary>
       </main>
     </BrowserRouter>
   );
