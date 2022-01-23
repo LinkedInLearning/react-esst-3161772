@@ -8,7 +8,11 @@ export function MemoCard(props) {
   const toggle = () => setShowBack(!showBack);
 
   return (
-    <div className={styles.card} onClick={toggle}>
+    <div
+      data-testid="clickme"
+      className={styles.card}
+      onClick={toggle}
+    >
       <small>{showBack ? "Back" : "Front"}</small>
 
       {!showBack && (
