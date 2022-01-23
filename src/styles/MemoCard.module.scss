@@ -1,9 +1,10 @@
 .card {
   background: beige;
-  width: 250px;
+  width: calc(50% - 20px);
+  max-width: 200px;
   height: 280px;
-  margin: 20px;
-  padding: 20px;
+  margin: 10px;
+  padding: 25px;
   border-radius: 7px;
   display: inline-block;
   box-sizing: border-box;
@@ -15,7 +16,7 @@
 
   &Question {
     display: block;
-    font-size: 30px;
+    font-size: 26px;
     padding-top: 15px;
   }
 
