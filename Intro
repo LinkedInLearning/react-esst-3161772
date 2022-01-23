@@ -1,3 +1,0 @@
-export function MyComponent(props) {
-  return <div>Hallo {props.name}</div>;
-}
