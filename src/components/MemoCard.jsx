@@ -5,6 +5,12 @@ export function MemoCard(props) {
   const [showBack, setShowBack] = useState(false);
   const { front, back } = props;
 
+  if (front === undefined && back === undefined) {
+    throw new Error(
+      "Please provide front and back values"
+    );
+  }
+
   const toggle = () => setShowBack(!showBack);
 
   return (
@@ -13,7 +19,9 @@ export function MemoCard(props) {
       className={styles.card}
       onClick={toggle}
     >
-      <small>{showBack ? "Back" : "Front"}</small>
+      <small data-testid="label">
+        {showBack ? "Back" : "Front"}
+      </small>
 
       {!showBack && (
         <strong className={styles.cardQuestion}>
