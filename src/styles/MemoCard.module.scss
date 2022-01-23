@@ -1,5 +1,5 @@
 .card {
-  background: beige;
+  background: #344c57;
   height: 180px;
   margin: 10px;
   padding: 25px;
@@ -7,6 +7,8 @@
   display: block;
   box-sizing: border-box;
   overflow: hidden;
+  color: white;
+  box-shadow: 2px 5px 14px #344c5733;
 
   p:last-child {
     margin-bottom: 0;
