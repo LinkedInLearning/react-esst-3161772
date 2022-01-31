@@ -3,15 +3,15 @@ import React from "react";
 /**
  * Nutzen Sie diese Funktion um die Zeit als Text zu formatieren
  */
-function formatTime(hours, minutes, seconds, tenthSeconds) {
-  const [hoursText, minutesText, secondsText, tenthSecondsText] = [
+function formatTime(hours, minutes, seconds, hundreds) {
+  const [hoursText, minutesText, secondsText, hundredsText] = [
     hours,
     minutes,
     seconds,
-    tenthSeconds,
+    hundreds,
   ].map((i) => `${i}`.padStart(2, 0));
 
-  return `${hoursText}:${minutesText}:${secondsText} '${tenthSecondsText}`;
+  return `${hoursText}:${minutesText}:${secondsText} '${hundredsText}`;
 }
 
 export function App() {
@@ -23,7 +23,7 @@ export function App() {
   const hours = 12;
   const minutes = 34;
   const seconds = 56;
-  const thousands = 99;
+  const hundreds = 99;
 
   // Tipp:
   // Schritt 1: Stunden, Minuten, Sekunden, 10-tel Sekunden extrahieren
@@ -33,7 +33,7 @@ export function App() {
   return (
     <div>
       <h1>Stoppuhr</h1>
-      <p>{formatTime(hours, minutes, seconds, tenthSeconds)}</p>
+      <p>{formatTime(hours, minutes, seconds, hundreds)}</p>
     </div>
   );
 }
