@@ -14,6 +14,9 @@ function formatTime(hours, minutes, seconds, hundreds) {
   return `${hoursText}:${minutesText}:${secondsText} '${hundredsText}`;
 }
 
+const HOURS_IN_SECONDS = 60 * 60;
+const MINUTES_IN_SECONDS = 60;
+
 export function App() {
   const isRunning = false;
   const startTime = new Date().getTime();
