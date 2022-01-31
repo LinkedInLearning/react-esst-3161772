@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 /**
  * Nutzen Sie diese Funktion um die Zeit als Text zu formatieren
@@ -27,21 +27,23 @@ function millisecondsToParts(milliseconds) {
 }
 
 export function App() {
-  const isRunning = false;
-  const startTime = new Date().getTime();
-  const currentTime = startTime + 5340;
-  const timeDelta = currentTime - startTime;
-  const milliseconds = 123456778;
+  // Schritt 1: Statische Werte verarbeiten
+  // Schritt 2: Buttons klickbar machen
+  // Schritt 3: Startbutton
+  // Schritt 4: Pausebutton
+  // Schritt 5: Stopbutton
 
-  // Tipp:
-  // Schritt 1: Stunden, Minuten, Sekunden, 10-tel Sekunden extrahieren
-  // Schritt 2: Buttons
-  // Schritt 3: Funktionalität (Button click -> startet Zeitupdate, usw.)
+  const timePassedInMs = 10500; // 10,5 Sekunden
 
   return (
     <div>
       <h1>Stoppuhr</h1>
       <p>{formatTime(1, 2, 3, 4)}</p>
+      <div>
+        <button type="button">Start</button>
+        <button type="button">Pause</button>
+        <button type="button">Stopp</button>
+      </div>
     </div>
   );
 }
