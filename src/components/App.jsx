@@ -20,10 +20,10 @@ export function App() {
   const currentTime = new Date().getTime();
   const timeDelta = currentTime - startTime;
   const totalSeconds = 123456789;
-  const tenthSeconds = 99;
-  const seconds = 56;
-  const minutes = 34;
   const hours = 12;
+  const minutes = 34;
+  const seconds = 56;
+  const thousands = 99;
 
   // Tipp:
   // Schritt 1: Stunden, Minuten, Sekunden, 10-tel Sekunden extrahieren
