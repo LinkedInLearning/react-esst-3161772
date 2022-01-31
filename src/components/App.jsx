@@ -14,19 +14,24 @@ function formatTime(hours, minutes, seconds, hundreds) {
   return `${hoursText}:${minutesText}:${secondsText} '${hundredsText}`;
 }
 
-const HOURS_IN_SECONDS = 60 * 60;
-const MINUTES_IN_SECONDS = 60;
+function millisecondsToParts(milliseconds) {
+  const secondsFloat = milliseconds / 1000;
+  const HOURS_IN_SECONDS = 60 * 60;
+
+  const hours = Math.floor(secondsFloat / HOURS_IN_SECONDS);
+  const minutes = Math.floor((secondsFloat % HOURS_IN_SECONDS) / 60);
+  const seconds = Math.floor(secondsFloat % 60);
+  const hundreds = (secondsFloat % 1).toFixed(2).substring(2);
+
+  return [hours, minutes, seconds, hundreds];
+}
 
 export function App() {
   const isRunning = false;
   const startTime = new Date().getTime();
-  const currentTime = new Date().getTime();
+  const currentTime = startTime + 5340;
   const timeDelta = currentTime - startTime;
-  const totalSeconds = 123456789;
-  const hours = 12;
-  const minutes = 34;
-  const seconds = 56;
-  const hundreds = 99;
+  const milliseconds = 123456778;
 
   // Tipp:
   // Schritt 1: Stunden, Minuten, Sekunden, 10-tel Sekunden extrahieren
@@ -36,7 +41,7 @@ export function App() {
   return (
     <div>
       <h1>Stoppuhr</h1>
-      <p>{formatTime(hours, minutes, seconds, hundreds)}</p>
+      <p>{formatTime(1, 2, 3, 4)}</p>
     </div>
   );
 }
