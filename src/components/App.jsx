@@ -16,7 +16,6 @@ function formatTime(hours, minutes, seconds, tenthSeconds) {
 
 export function App() {
   const isRunning = false;
-  const timeText = "--:--:-- '--";
   const startTime = new Date().getTime();
   const currentTime = new Date().getTime();
   const timeDelta = currentTime - startTime;
@@ -26,7 +25,7 @@ export function App() {
   const tenthSeconds = 99;
 
   // Tipp:
-  // Schritt 1: Zeit ordentlich formatieren
+  // Schritt 1: Stunden, Minuten, Sekunden, 10-tel Sekunden extrahieren
   // Schritt 2: Buttons
   // Schritt 3: Funktionalität (Button click -> startet Zeitupdate, usw.)
 
