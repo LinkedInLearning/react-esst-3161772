@@ -1,11 +1,22 @@
 import React from "react";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  Link,
+  Route,
+  Routes,
+} from "react-router-dom";
 import { ErrorBoundary } from "./ErrorBoundary";
 import { Home } from "./Home";
 import { Photos } from "./Photos";
-const SinglePhoto = React.lazy(() => import("./SinglePhoto"));
+const SinglePhoto = React.lazy(() =>
+  import("./SinglePhoto")
+);
 
 export function App() {
+  // In SinglePhoto.jsx
+  // finden Sie die Implementierungsvorlage!
+  // ---------------------------------------
+
   const imageIds = ["111", "211", "311", "351", "678"];
 
   return (
@@ -23,11 +34,18 @@ export function App() {
 
       <main>
         <ErrorBoundary>
-          <React.Suspense fallback={<div>Lade Component...</div>}>
+          <React.Suspense
+            fallback={<div>Lade Component...</div>}
+          >
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/photos">
-                <Route path="" element={<Photos imageIds={imageIds} />} />
+                <Route
+                  path=""
+                  element={
+                    <Photos imageIds={imageIds} />
+                  }
+                />
 
                 <Route
                   path=":id"

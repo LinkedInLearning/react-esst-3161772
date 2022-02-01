@@ -3,6 +3,9 @@ import { Link, useParams } from "react-router-dom";
 export default function SinglePhoto() {
   const params = useParams();
 
+  // useSearchParams:
+  // https://reactrouter.com/docs/en/v6/examples/search-params
+
   return (
     <>
       <h2>Ein tolles Foto:</h2>
