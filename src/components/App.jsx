@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 export function App() {
+  const [food, setFood] = useState("pasta");
   const [formData, setFormData] = useState({});
   const [showDate, setShowDate] = useState(true);
 
@@ -10,7 +11,20 @@ export function App() {
   const formSubmitted = (submitEvent) => {
     submitEvent.preventDefault();
 
-    setFormData({ fullname, birthdate });
+    let formData = {
+      fullname,
+      food,
+    };
+
+    if (showDate) {
+      formData.birthdate = birthdate;
+    }
+
+    setFormData(formData);
+  };
+
+  const foodChanged = (event) => {
+    setFood(event.target.value);
   };
 
   const fullnameChanged = (event) => {
@@ -42,6 +56,7 @@ export function App() {
                 placeholder="Ihr Name"
                 value={fullname}
                 onInput={fullnameChanged}
+                required
               />
             </p>
 
@@ -57,23 +72,33 @@ export function App() {
                   name="birthdate"
                   onInput={birthdateChanged}
                   value={birthdate}
+                  required
                 />
               </p>
             )}
 
-            <button
-              type="button"
-              onClick={() => setShowDate(!showDate)}
-            >
-              Geburtstag an/aus
-            </button>
+            <input
+              id="check-me"
+              type="checkbox"
+              checked={showDate}
+              onChange={() => setShowDate(!showDate)}
+            />
+            <label htmlFor="check-me">
+              Geburtstag an
+            </label>
 
             <p>
               <label htmlFor="mySelect">
-                Select-Feld:
+                Lieblingsessen:
               </label>
               <br />
-              [Select]
+              <select
+                value={food}
+                onChange={foodChanged}
+              >
+                <option value="pizza">Pizza</option>
+                <option value="pasta">Pasta</option>
+              </select>
             </p>
 
             <p>
