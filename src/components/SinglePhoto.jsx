@@ -14,6 +14,21 @@ export default function SinglePhoto() {
         width="100%"
         src={`https://picsum.photos/id/${params.id}/460/240`}
       />
+
+      <div>
+        <h3>Challenge: Kommentar</h3>
+        <p>
+          Challenge: Ich bin vielleicht ein
+          Kommentartext
+        </p>
+
+        <p>
+          <input type="text" />
+          <button type="button">
+            Kommentar setzen
+          </button>
+        </p>
+      </div>
     </>
   );
 }
