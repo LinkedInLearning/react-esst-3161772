@@ -1,24 +1,30 @@
-import React from "react";
-import { Linkchecker } from "./Linkchecker";
+import React, { useMemo } from "react";
 
 export function App() {
+  const showXy = false;
+  const x = 0;
+  const y = 0;
+
+  const xyView = useMemo(() => {
+    if (showXy) {
+      return (
+        <p>
+          <strong>X={x}</strong>
+          <strong>Y={y}</strong>
+        </p>
+      );
+    }
+
+    return "";
+  }, [showXy, x, y]);
+
   return (
     <div>
-      <h1>Linkchecker</h1>
+      <h1>XY-Viewer</h1>
 
-      <Linkchecker />
+      <button type="button">On/Off</button>
 
-      <ul>
-        <li>
-          <a href="https://linkedin.com">LinkedIn</a>
-        </li>
-        <li>
-          <a href="https://blog.activenode.de">David's Blog</a>
-        </li>
-        <li>
-          <a href="https://unsecure-link">Bank Website</a>
-        </li>
-      </ul>
+      {xyView}
     </div>
   );
 }
