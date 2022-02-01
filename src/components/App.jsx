@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 
 /**
- * Nutzen Sie diese Funktion um die Zeit als Text zu formatieren
+ * Nutzen Sie diese Funktion um
+ * Stunden, Minuten, Sekunden und Hundertstel
+ * als Text zu formatieren
  */
 function formatTime(hours, minutes, seconds, hundreds) {
   const [hoursText, minutesText, secondsText, hundredsText] = [
@@ -14,6 +16,12 @@ function formatTime(hours, minutes, seconds, hundreds) {
   return `${hoursText}:${minutesText}:${secondsText} '${hundredsText}`;
 }
 
+/**
+ * Mit dieser Funktion können Sie Millisekunden
+ * in seine Bestandteile
+ * Stunden, Minuten, Sekunden und Hundertstel
+ * aufsplitten
+ */
 function millisecondsToParts(milliseconds) {
   const secondsFloat = milliseconds / 1000;
   const HOURS_IN_SECONDS = 60 * 60;
