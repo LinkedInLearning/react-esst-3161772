@@ -1,10 +1,28 @@
-import { Link, useParams } from "react-router-dom";
+import { useState } from "react";
+import {
+  Link,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
 
 export default function SinglePhoto() {
   const params = useParams();
+  const [inputValue, setInputValue] = useState("");
+  const [searchParams, setSearchParams] =
+    useSearchParams();
 
+  const comment = searchParams.get("comment");
   // useSearchParams:
   // https://reactrouter.com/docs/en/v6/examples/search-params
+
+  const buttonClicked = () => {
+    setSearchParams({
+      comment: inputValue,
+    });
+  };
+  const inputChanged = (inputEvent) => {
+    setInputValue(inputEvent.target.value);
+  };
 
   return (
     <>
@@ -20,14 +38,14 @@ export default function SinglePhoto() {
 
       <div>
         <h3>Challenge: Kommentar</h3>
-        <p>
-          Challenge: Ich bin vielleicht ein
-          Kommentartext
-        </p>
+        <p>{comment}</p>
 
         <p>
-          <input type="text" />
-          <button type="button">
+          <input type="text" onInput={inputChanged} />
+          <button
+            type="button"
+            onClick={buttonClicked}
+          >
             Kommentar setzen
           </button>
         </p>
