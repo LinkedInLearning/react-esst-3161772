@@ -60,12 +60,21 @@ export function App() {
                 />
               </p>
             )}
+
             <button
               type="button"
               onClick={() => setShowDate(!showDate)}
             >
               Geburtstag an/aus
             </button>
+
+            <p>
+              <label htmlFor="mySelect">
+                Select-Feld:
+              </label>
+              <br />
+              [Select]
+            </p>
 
             <p>
               <button type="submit">
