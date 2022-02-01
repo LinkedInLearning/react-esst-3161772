@@ -78,12 +78,12 @@ export function App() {
             )}
 
             <input
-              id="check-me"
+              id="checkme"
               type="checkbox"
               checked={showDate}
               onChange={() => setShowDate(!showDate)}
             />
-            <label htmlFor="check-me">
+            <label htmlFor="checkme">
               Geburtstag an
             </label>
 
