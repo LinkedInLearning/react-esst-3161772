@@ -1,9 +1,41 @@
-import React, { useMemo } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 export function App() {
-  const showXy = false;
-  const x = 0;
-  const y = 0;
+  const [showXy, setShowXy] = useState(false);
+  const [x, setX] = useState(0);
+  const [y, setY] = useState(0);
+  const mousemove = useCallback((mouseEvent) => {
+    setX(mouseEvent.x);
+    setY(mouseEvent.y);
+  }, []);
+  const keyup = useCallback((keyEvent) => {
+    if (keyEvent.key === "Escape") {
+      setX(0);
+      setY(0);
+      setShowXy(false);
+      window.removeEventListener("mousemove", mousemove);
+      window.removeEventListener("keyup", keyup);
+    }
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      window.removeEventListener("mousemove", mousemove);
+      window.removeEventListener("keyup", keyup);
+    };
+  }, [mousemove]);
+
+  const buttonClicked = () => {
+    setShowXy(!showXy);
+
+    window.removeEventListener("mousemove", mousemove);
+    window.removeEventListener("keyup", keyup);
+
+    if (!showXy) {
+      window.addEventListener("mousemove", mousemove);
+      window.addEventListener("keyup", keyup);
+    }
+  };
 
   const xyView = useMemo(() => {
     if (showXy) {
@@ -22,7 +54,9 @@ export function App() {
     <div>
       <h1>XY-Viewer</h1>
 
-      <button type="button">On/Off</button>
+      <button type="button" onClick={buttonClicked}>
+        On/Off
+      </button>
 
       {xyView}
     </div>
