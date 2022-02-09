@@ -13,7 +13,7 @@ Dieses Repository hat Branches für jedes Video im Kurs. Verwenden Sie das Auskl
 ## Branches
 
 Die Git Branches sind passend zu den Videos im Kurs strukturiert. Die Namenskonvention lautet `Kapitel#_Video#_Topic`. Der Branch `02_03-...` beinhaltet zum Beispiel die Übungen für das dritte Video im zweiten Kapitel. 
-Einige Branches haben einen Anfangsstatus (`b`) für "beginning" und einen Endstatus (`e`). Der Branch mit dem `e` am Ende beinhaltet in diesem Fall stets den Code der am Ende des Videos zu sehen ist. Der `master` Branch beinhaltet den initialen Quellcode und wird nicht für die Übungen innerhalb des Kurses genutzt.
+Der `master` Branch beinhaltet den initialen Quellcode und wird nicht für die Übungen innerhalb des Kurses genutzt.
 
 Wenn Sie von einem Branch nach Änderungen zum nächsten Branch wechseln, erhalten Sie möglicherweise die folgende Meldung:
 
@@ -23,16 +23,21 @@ Please commit your changes or stash them before you switch branches.
 Aborting
 ```
 
-Dieses Problem lösen Sie wie folgt:
+Dieses Problem lösen Sie wie folgt, insofern Sie ihre Änderungen in der aktuellen Branch speichern wollen:
     Add changes to git using this command: git add .
     Commit changes using this command: git commit -m "some message"
+    
+Wollen Sie einfach nur die Branch wechseln so können Sie folgendes Kommando verwenden: `git checkout -- .`
 
 ## Installation
 
 1. Um diese Übungsdateien nutzen zu können, müssen Sie folgendes installiert haben:
-   - [list of requirements for course]
-2. Klonen Sie das Repository in Ihre lokale Maschine unter Verwendung von terminal (Mac), CMD (Windows) oder ein anderes Werkzeug mit grafischer Bedienoberfläche wie SourceTree.
-3. [Course-specific instructions]
+   - Node.js >= 16
+   - npm (passend zur Node Version)
+   - git
+2. Klonen Sie das Repository in Ihre lokale Maschine unter Verwendung von terminal (Mac), CMD (Windows) oder ein anderes Werkzeug mit grafischer Bedienoberfläche wie SourceTree oder GitHub Desktop.
+3. Führen Sie `npm start` aus
+4. Zum Starten der Testumgebung führen Sie `npm run dev` aus.
 
 ### Autor
 
@@ -40,7 +45,7 @@ Dieses Problem lösen Sie wie folgt:
 
 _Frontend-Architekt_
 
-Sehen Sie sich andere Kurse des Autors auf [LinkedIn Learning](https://www.linkedin.com/learning/instructors/name_des_autors) an.
+Sehen Sie sich andere Kurse des Autors auf [LinkedIn Learning](https://www.linkedin.com/learning/instructors/david-lorenz) an.
 
 [0]: # (Replace these placeholder URLs with actual course URLs)
 [lil-course-url]: https://www.linkedin.com/learning/building-a-graphql-project-with-react-js
