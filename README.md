@@ -2,9 +2,10 @@
 
 Dies ist das Repository für den **LinkedIn Learning** Kurs `React Grundkurs`. Den gesamten Kurs finden Sie auf [LinkedIn Learning][lil-course-url].
 
-![React Grundkurs][lil-thumbnail-url] 
+![image](https://user-images.githubusercontent.com/61017085/168143397-bc0952fb-686b-4008-bc9a-8af656dacf0f.png) 
 
-[COURSEDESCRIPTION]
+React hat die JavaScript-Welt nachhaltig verändert und ist heute mehr als nur Frontend-Framework: Es kommt in Fullstack-Projekten wie NextJS genauso zum Einsatz wie als React Native in mobilen Apps. Dieser umfangreiche Einsteigerkurs führt Sie von Grund auf in die populäre Bibliothek ein, leitet Sie durch Installation und Setup und stellt ausführlich die wichtigsten Komponenten und Mechanismen vor. Schritt für SChritt dringen Sie selbst in fortgeschrittene Themen wie Testing, dem Einsatz von JSX-Kommentaren oder dem State-Management mit Redux vor. 
+Um von dem Kurs mit seinen vielen Praxisbeispielen am besten profitieren zu können, sollten Sie über gute JavaScript- und HTML-Kenntnisse verfügen sowie mit der Kommandezeile umgehen können. Anhand von Challenges/Solutions-Aufgaben am Ende vieler Kapitel können Sie das Erlernte sofort testen und Ihre Lösung auch gleich mit der von Ihrem Trainer angebotenen Version vergleichen.
 
 ## Anleitung
 
@@ -48,5 +49,4 @@ _Frontend-Architekt_
 Sehen Sie sich andere Kurse des Autors auf [LinkedIn Learning](https://www.linkedin.com/learning/instructors/david-lorenz) an.
 
 [0]: # (Replace these placeholder URLs with actual course URLs)
-[lil-course-url]: https://www.linkedin.com/learning/building-a-graphql-project-with-react-js
-[lil-thumbnail-url]: https://cdn.lynda.com/course/2875095/2875095-1615224395432-16x9.jpg
+[lil-course-url]: https://www.linkedin.com/learning/react-grundkurs
