@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import "./ClickerStyles.css";
+import "./styles.css";
 import { Clicker } from "./components/Clicker";
 
 ReactDOM.render(
