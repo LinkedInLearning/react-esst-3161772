@@ -1,19 +1,22 @@
 import { useState } from "react";
 import { getTimeFromDate } from "../getTimeFromDate";
-// import { getTimeFromServer } from "../getTimeFromServer";
+import { getTimeFromServer } from "../getTimeFromServer";
 
 export function Clicker() {
   const [countClicks, setCountClicks] = useState(0);
   const [updateTime, setUpdateTime] = useState("bisher nie");
 
   const update = () => {
-    setCountClicks(countClicks + 1);
-    const date = new Date();
+    // setCountClicks(countClicks + 1);
+    // setUpdateTime(getTimeFromDate(new Date()));
 
-    setUpdateTime(getTimeFromDate(date));
+    getTimeFromServer().then((timeString) => {
+      setCountClicks(countClicks + 1);
+      setUpdateTime(timeString);
+    });
   };
 
-  console.log("Called");
+  console.log("Render angefragt");
 
   return (
     <>

@@ -1,12 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './ClickerStyles.css';
-import { Clicker } from './components/Clicker';
+import React from "react";
+import { createRoot } from "react-dom/client";
+import "./ClickerStyles.css";
+import { Clicker } from "./components/Clicker";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Clicker />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const root = createRoot(document.getElementById("root"));
 
+root.render(<Clicker />);
