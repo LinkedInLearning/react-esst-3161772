@@ -2,7 +2,7 @@ body {
   font-family: "Lucida Sans", "Lucida Sans Regular",
     "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana,
     sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
 }
 
@@ -12,9 +12,13 @@ ul {
 }
 
 li {
-  border-bottom: 1px solid slategray;
+  cursor: pointer;
   padding: 0.3em;
-  font-size: 0.74em;
+  border: 1px solid rgba(112, 128, 144, 0.165);
+  font-size: 0.83em;
+  background-color: rgb(250, 241, 250);
+  border-radius: 5px;
+  margin-bottom: 0.5ex;
 }
 li:hover {
   background-color: blanchedalmond;
@@ -22,19 +26,23 @@ li:hover {
 
 button {
   appearance: none;
-  background: white;
   border-radius: 4px;
-  background-color: blueviolet;
-  color: white;
+  background-color: rgb(50, 38, 61);
+  color: rgba(255, 255, 255, 0.609);
   font-size: 0.8em;
-  padding: 3px;
+  padding: 5px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
 }
 
 button.active {
-  background-color: indigo;
+  color: white;
+  background-color: rgb(106, 22, 167);
+  border: 2px solid rgb(132, 84, 237);
+  font-weight: bold;
 }
 
-button:hover {
+button:not(.active):hover {
   background-color: indigo;
   opacity: 0.8;
 }
@@ -45,7 +53,7 @@ button:hover {
 }
 
 .filterbox {
-  background-color: aquamarine;
+  background-color: darkblue;
   padding: 0.3em;
   display: flex;
   gap: 10px;
