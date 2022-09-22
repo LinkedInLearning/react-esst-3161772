@@ -6,7 +6,7 @@ function hugeProductList() {
 
   let count = 0;
 
-  while (++count < 30000) {
+  while (++count < 2000) {
     const isHighlighted = Math.random() > 0.4;
     products.push({
       id: count,
@@ -18,8 +18,8 @@ function hugeProductList() {
   return products;
 }
 
-export function Inputs() {
-  const allProducts = useMemo(hugeProductList, []);
+function SingleProductList() {
+  const allProducts = useMemo(() => hugeProductList(), []);
   const [isPending, startTransition] = useTransition();
   const [productsType, setProductsType] = useState("all");
 
@@ -31,16 +31,12 @@ export function Inputs() {
         });
 
   const switchFilterTo = (productsType) => {
-    startTransition(() => {
-      setProductsType(productsType);
-    });
+    setProductsType(productsType);
   };
 
   return (
     <ul>
       <h1>Produkte</h1>
-
-      {isPending && "Verarbeite Daten..."}
 
       <div className="filterbox">
         <button
@@ -66,5 +62,14 @@ export function Inputs() {
         );
       })}
     </ul>
+  );
+}
+
+export function ProductList() {
+  return (
+    <div className="double-product-list">
+      <ProductList />
+      <ProductList />
+    </div>
   );
 }

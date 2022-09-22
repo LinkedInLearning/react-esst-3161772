@@ -14,6 +14,9 @@ li {
   border-bottom: 1px solid slategray;
   padding: 0.3em;
 }
+li:hover {
+  background-color: blanchedalmond;
+}
 
 button {
   appearance: none;
@@ -30,4 +33,8 @@ button {
   display: flex;
   gap: 10px;
   margin-bottom: 10px;
+}
+
+.double-product-list {
+  display: flex;
 }
