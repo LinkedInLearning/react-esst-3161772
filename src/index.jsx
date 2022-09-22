@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Clicker } from './components/Clicker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <div>Hello!</div>
+    <Clicker />
   </React.StrictMode>,
   document.getElementById('root')
 );
