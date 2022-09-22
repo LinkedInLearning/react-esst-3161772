@@ -8,11 +8,13 @@ body {
 
 ul {
   list-style: none;
+  padding: 0;
 }
 
 li {
   border-bottom: 1px solid slategray;
   padding: 0.3em;
+  font-size: 0.74em;
 }
 li:hover {
   background-color: blanchedalmond;
@@ -25,6 +27,15 @@ button {
   background-color: blueviolet;
   color: white;
   font-size: 0.8em;
+}
+
+button:hover {
+  background-color: darkblue;
+}
+
+.product-list {
+  padding: 0.4em;
+  border: 1px solid darkgray;
 }
 
 .filterbox {

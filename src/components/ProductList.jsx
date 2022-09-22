@@ -6,8 +6,8 @@ function hugeProductList() {
 
   let count = 0;
 
-  while (++count < 2000) {
-    const isHighlighted = Math.random() > 0.4;
+  while (++count < 5_000_000) {
+    const isHighlighted = count % 2 === 0;
     products.push({
       id: count,
       isHighlighted,
@@ -20,7 +20,7 @@ function hugeProductList() {
 
 function SingleProductList() {
   const allProducts = useMemo(() => hugeProductList(), []);
-  const [isPending, startTransition] = useTransition();
+  // const [isPending, startTransition] = useTransition();
   const [productsType, setProductsType] = useState("all");
 
   const filteredProducts =
@@ -35,9 +35,7 @@ function SingleProductList() {
   };
 
   return (
-    <ul>
-      <h1>Produkte</h1>
-
+    <div className="product-list">
       <div className="filterbox">
         <button
           type="button"
@@ -53,23 +51,25 @@ function SingleProductList() {
         </button>
       </div>
 
-      {filteredProducts.map((product) => {
-        return (
-          <li key={product.id}>
-            {product.isHighlighted && "🤩 "}
-            {product.name} (ID={product.id})
-          </li>
-        );
-      })}
-    </ul>
+      <ul>
+        {filteredProducts.slice(0, 1500).map((product) => {
+          return (
+            <li key={product.id}>
+              {product.isHighlighted && "🎩 "}
+              {product.name} (ID={product.id})
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 }
 
 export function ProductList() {
   return (
     <div className="double-product-list">
-      <ProductList />
-      <ProductList />
+      <SingleProductList />
+      <SingleProductList />
     </div>
   );
 }
