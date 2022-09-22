@@ -1,6 +1,38 @@
 body {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular",
+    "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana,
+    sans-serif;
   font-size: 20px;
   font-weight: bold;
+}
+
+.tabs {
+  display: flex;
+  gap: 20px;
+}
+
+.tab {
+  cursor: pointer;
+  color: maroon;
+}
+
+.tab.active {
+  text-decoration: underline;
+}
+
+button {
+  appearance: none;
+  background: white;
+  border-radius: 4px;
+  background-color: blueviolet;
+  color: white;
+  font-size: 0.8em;
+}
+
+.filterbox {
+  background-color: aquamarine;
+  padding: 0.3em;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
 }

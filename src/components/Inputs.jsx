@@ -1,30 +1,70 @@
-import { useId, useState } from "react";
+import { useMemo, useState, useTransition } from "react";
+import { getRandomName } from "../getRandomName";
 
-function NameInput() {
-  // const randomId = `id-${Math.random().toFixed(7)}`;
-  const randomId = useId();
+function hugeProductList() {
+  const products = [];
 
-  return (
-    <div>
-      <label htmlFor={randomId}>Enter your Name: </label>
-      <input id={randomId} />
-    </div>
-  );
+  let count = 0;
+
+  while (++count < 30000) {
+    const isHighlighted = Math.random() > 0.4;
+    products.push({
+      id: count,
+      isHighlighted,
+      name: getRandomName(),
+    });
+  }
+
+  return products;
 }
 
 export function Inputs() {
-  const [inputsCount, setInputsCount] = useState(2);
+  const allProducts = useMemo(hugeProductList, []);
+  const [isPending, startTransition] = useTransition();
+  const [productsType, setProductsType] = useState("all");
+
+  const filteredProducts =
+    productsType === "all"
+      ? allProducts
+      : allProducts.filter((product) => {
+          return product.isHighlighted === true;
+        });
+
+  const switchFilterTo = (productsType) => {
+    startTransition(() => {
+      setProductsType(productsType);
+    });
+  };
 
   return (
-    <>
-      {Array.from({ length: inputsCount }).map((v, index) => {
-        return <NameInput key={index} />;
-      })}
-      <p>
-        <button type="button" onClick={() => setInputsCount(inputsCount + 1)}>
-          + Neues Input
+    <ul>
+      <h1>Produkte</h1>
+
+      {isPending && "Verarbeite Daten..."}
+
+      <div className="filterbox">
+        <button
+          type="button"
+          onClick={() => switchFilterTo("all")}
+        >
+          Alle Produkte
         </button>
-      </p>
-    </>
+        <button
+          type="button"
+          onClick={() => switchFilterTo("highlighted")}
+        >
+          Nur Hervorgehobene Produkte
+        </button>
+      </div>
+
+      {filteredProducts.map((product) => {
+        return (
+          <li key={product.id}>
+            {product.isHighlighted && "🤩 "}
+            {product.name} (ID={product.id})
+          </li>
+        );
+      })}
+    </ul>
   );
 }

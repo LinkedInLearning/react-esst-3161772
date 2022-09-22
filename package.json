@@ -39,5 +39,8 @@
     "name": "David Lorenz",
     "email": "info@activenode.de",
     "url": "https://activenode.de"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.5.0"
   }
 }
