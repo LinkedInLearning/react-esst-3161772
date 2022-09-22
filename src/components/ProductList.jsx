@@ -1,7 +1,7 @@
 import { useMemo, useState, useTransition } from "react";
 import { getRandomName } from "../getRandomName";
 
-function hugeProductList() {
+function generateProducts() {
   const products = [];
 
   let count = 0;
@@ -19,8 +19,7 @@ function hugeProductList() {
 }
 
 function SingleProductList() {
-  const allProducts = useMemo(() => hugeProductList(), []);
-  // const [isPending, startTransition] = useTransition();
+  const allProducts = useMemo(() => generateProducts(), []);
   const [productsType, setProductsType] = useState("all");
 
   const filteredProducts =
@@ -39,12 +38,16 @@ function SingleProductList() {
       <div className="filterbox">
         <button
           type="button"
+          className={productsType === "all" ? "active" : ""}
           onClick={() => switchFilterTo("all")}
         >
           Alle Produkte
         </button>
         <button
           type="button"
+          className={
+            productsType === "highlighted" ? "active" : ""
+          }
           onClick={() => switchFilterTo("highlighted")}
         >
           Nur Hervorgehobene Produkte

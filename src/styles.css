@@ -27,10 +27,16 @@ button {
   background-color: blueviolet;
   color: white;
   font-size: 0.8em;
+  padding: 3px;
+}
+
+button.active {
+  background-color: indigo;
 }
 
 button:hover {
-  background-color: darkblue;
+  background-color: indigo;
+  opacity: 0.8;
 }
 
 .product-list {
