@@ -2,12 +2,12 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 
 import "./styles.css";
-import { Products } from "./components/Products";
+import { Tabs } from "./components/Tabs";
 
 const root = createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <Products />
+    <Tabs />
   </React.StrictMode>
 );

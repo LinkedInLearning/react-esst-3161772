@@ -11,35 +11,31 @@ ul {
   padding: 0;
 }
 
-li {
-  cursor: pointer;
-  padding: 0.3em;
-  border: 1px solid rgba(112, 128, 144, 0.165);
-  font-size: 0.83em;
-  background-color: rgb(250, 241, 250);
-  border-radius: 5px;
-  margin-bottom: 0.5ex;
-}
-li:hover {
-  background-color: blanchedalmond;
-}
-
 button {
   appearance: none;
-  border-radius: 4px;
-  background-color: rgb(50, 38, 61);
-  color: rgba(255, 255, 255, 0.609);
-  font-size: 0.8em;
+  background-color: rgb(84, 0, 163);
+  color: rgb(255, 255, 255);
+  font-size: 1.2rem;
   padding: 5px;
   border: 2px solid rgba(255, 255, 255, 0.1);
   cursor: pointer;
 }
 
+button:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+button:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
 button.active {
   color: white;
-  background-color: rgb(106, 22, 167);
-  border: 2px solid rgb(132, 84, 237);
+  background-color: rgb(18, 78, 207);
   font-weight: bold;
+  text-decoration: underline;
 }
 
 button:not(.active):hover {
@@ -47,24 +43,10 @@ button:not(.active):hover {
   opacity: 0.8;
 }
 
-.product-list {
-  padding: 0.4em;
-  border: 1px solid darkgray;
-  flex: 1;
-}
-
-.filterbox {
-  background-color: darkblue;
-  padding: 0.3em;
-  display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.filterbox input {
-  font-size: 1.2rem;
-}
-
-.product-lists {
-  display: flex;
+main {
+  margin-top: -3px;
+  padding: 1em;
+  background-color: rgb(18, 78, 207);
+  border: 1px solid gray;
+  color: white;
 }
