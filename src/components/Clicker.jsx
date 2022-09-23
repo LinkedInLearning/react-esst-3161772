@@ -7,8 +7,7 @@ export function Clicker() {
   const [updateTime, setUpdateTime] = useState("bisher nie");
 
   const update = () => {
-    // setCountClicks(countClicks + 1);
-    // setUpdateTime(getTimeFromDate(new Date()));
+    // const timeString = getTimeFromDate(new Date());
 
     getTimeFromServer().then((timeString) => {
       setCountClicks(countClicks + 1);

@@ -3,6 +3,6 @@ export function getTimeFromServer() {
     setTimeout(() => {
       const date = new Date();
       r(`${date.getHours()}:${date.getMinutes()}`);
-    }, 1200);
+    }, 350);
   });
 }
