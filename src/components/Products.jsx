@@ -1,8 +1,14 @@
-import { useMemo, useState, useTransition } from "react";
+import {
+  useDeferredValue,
+  useEffect,
+  useMemo,
+  useState,
+  useTransition,
+} from "react";
 import { getRandomName } from "../getRandomName";
 
 // Die Zahl je nach Performance des Computers anpassen
-const PRODUCTS_PER_LIST = 20_000_000;
+const PRODUCTS_PER_LIST = 5_000_000;
 
 /**
  * Generate Random Products
@@ -30,42 +36,28 @@ function generateProducts() {
 }
 
 function SingleProductList() {
-  const [isPending, startTransition] = useTransition();
+  const [searchText, setSearchText] = useState("");
+  const delayedSearchText = useDeferredValue(searchText);
   const allProducts = useMemo(() => generateProducts(), []);
 
-  const [showOnlyHighlighted, setShowOnlyHighlighted] =
-    useState(false);
-
-  const filteredProducts = allProducts.filter((product) => {
-    return !showOnlyHighlighted || product.isHighlighted;
-  });
-
-  const switchProductFilter = (highlightedOnly) => {
-    startTransition(() => {
-      setShowOnlyHighlighted(highlightedOnly);
-    });
-  };
+  const filteredProducts = useMemo(
+    () =>
+      allProducts.filter((product) => {
+        return product.name
+          .toLowerCase()
+          .includes(delayedSearchText);
+      }),
+    [delayedSearchText]
+  );
 
   return (
-    <div
-      className="product-list"
-      style={{ opacity: isPending ? "0.5" : "1" }}
-    >
+    <div className="product-list">
       <div className="filterbox">
-        <button
-          type="button"
-          className={!showOnlyHighlighted ? "active" : ""}
-          onClick={() => switchProductFilter(false)}
-        >
-          Alle Produkte
-        </button>
-        <button
-          type="button"
-          className={showOnlyHighlighted ? "active" : ""}
-          onClick={() => switchProductFilter(true)}
-        >
-          Nur Hervorgehobene Produkte
-        </button>
+        <input
+          type="text"
+          placeholder="Hier filtern"
+          onChange={(e) => setSearchText(e.target.value)}
+        />
       </div>
 
       <ul>
@@ -87,10 +79,9 @@ function SingleProductList() {
   );
 }
 
-export function ProductList() {
+export function Products() {
   return (
-    <div className="double-product-list">
-      <SingleProductList />
+    <div className="product-lists">
       <SingleProductList />
     </div>
   );

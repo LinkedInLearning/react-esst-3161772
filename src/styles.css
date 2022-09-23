@@ -50,6 +50,7 @@ button:not(.active):hover {
 .product-list {
   padding: 0.4em;
   border: 1px solid darkgray;
+  flex: 1;
 }
 
 .filterbox {
@@ -60,6 +61,10 @@ button:not(.active):hover {
   margin-bottom: 10px;
 }
 
-.double-product-list {
+.filterbox input {
+  font-size: 1.2rem;
+}
+
+.product-lists {
   display: flex;
 }
