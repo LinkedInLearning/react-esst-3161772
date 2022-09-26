@@ -29,7 +29,7 @@ function generateProducts() {
   return products;
 }
 
-function SingleProductList() {
+export function SingleProductList() {
   const [isPending, startTransition] = useTransition();
   const allProducts = useMemo(() => generateProducts(), []);
 
@@ -83,15 +83,6 @@ function SingleProductList() {
           );
         })}
       </ul>
-    </div>
-  );
-}
-
-export function ProductList() {
-  return (
-    <div className="double-product-list">
-      <SingleProductList />
-      <SingleProductList />
     </div>
   );
 }
